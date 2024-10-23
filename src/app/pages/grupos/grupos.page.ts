@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Person } from '../core/models/person.model';
-import { Paginated } from '../core/models/paginated.model';
+import { Person } from '../../core/models/person.model';
+import { Paginated } from '../../core/models/paginated.model';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
-import { Group } from '../core/models/group.model';
-import { GroupService } from '../core/services/impl/group.service';
+import { Group } from '../../core/models/group.model';
+import { GroupService } from '../../core/services/impl/group.service';
 
 @Component({
   selector: 'app-grupos',

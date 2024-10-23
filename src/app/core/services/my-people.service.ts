@@ -49,4 +49,8 @@ export class MyPeopleService{
             })};
         }))
     }
+
+    addPerson(personData: Person) {
+        return this.http.post<Person>(this.apiUrl,personData)
+      }
 }

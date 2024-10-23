@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PersonasPageRoutingModule } from './personas-routing.module';
+import { GruposPageRoutingModule } from './grupos-routing.module';
 
-import { PersonasPage } from './personas.page';
-import { SharedModule } from '../shared/shared.module';
+import { GruposPage } from './grupos.page';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PersonasPageRoutingModule,
+    GruposPageRoutingModule,
     SharedModule
   ],
-  declarations: [PersonasPage]
+  declarations: [GruposPage]
 })
-export class PersonasPageModule {}
+export class GruposPageModule {}

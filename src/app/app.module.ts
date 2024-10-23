@@ -10,14 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { GroupRepositoryFactory, PeopleRepositoryFactory } from './core/repositories/repository.factory';
 import { PeopleService } from './core/services/impl/people.service';
 import { GROUP_API_URL_TOKEN, GROUP_REPOSITORY_MAPPING_TOKEN, GROUP_RESOURCE_NAME_TOKEN, PEOPLE_API_URL_TOKEN, PEOPLE_REPOSITORY_MAPPING_TOKEN, PEOPLE_RESOURCE_NAME_TOKEN } from './core/repositories/repository.tokens';
-import { provideHttpClient } from '@angular/common/http';
-import { PeopleLocalStorageMapping } from './core/repositories/impl/people-mapping-local-storage.service';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { PeopleMappingJsonServer } from './core/repositories/impl/people-mapping-json-server.service';
 import { GroupMappingJsonServer } from './core/repositories/impl/group-mapping-json-server.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PersonModalComponent } from './shared/components/person-modal/person-modal.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent,PersonModalComponent],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideHttpClient(),
