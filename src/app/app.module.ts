@@ -14,10 +14,9 @@ import { provideHttpClient } from '@angular/common/http';
 import { PeopleLocalStorageMapping } from './core/repositories/impl/people-mapping-local-storage.service';
 import { PeopleMappingJsonServer } from './core/repositories/impl/people-mapping-json-server.service';
 import { GroupMappingJsonServer } from './core/repositories/impl/group-mapping-json-server.service';
-import { PersonModalComponent } from './person-modal/person-modal.component';
 
 @NgModule({
-  declarations: [AppComponent,PersonModalComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
