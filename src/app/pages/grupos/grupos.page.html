@@ -7,19 +7,24 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">grupos</ion-title>
+      <ion-title size="large">groups</ion-title>
     </ion-toolbar>
   </ion-header>
-  <app-routing-bar></app-routing-bar>
-
   <ion-list>
-    <ion-item *ngFor="let group of group$ | async; let i = index">
-      <ion-avatar slot="start">
-      </ion-avatar>
-      <ion-label class="ion-text-nowrap">
+    <ion-item *ngFor="let group of group$ | async; let i = index" (click)="openGroupDetail(group, i)">
+      
+      <ion-label class="ion-text-nowrap" >
         {{group.name}}
       </ion-label>
+      <ion-button color="danger" (click)="onDeleteGroupsConfirm(group.id); ;$event.stopPropagation();">Delete</ion-button>
     </ion-item>
   </ion-list>
-
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="onAddGroups()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
