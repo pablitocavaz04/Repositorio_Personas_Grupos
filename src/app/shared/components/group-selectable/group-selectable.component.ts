@@ -18,11 +18,11 @@ import { Group } from 'src/app/core/models/group.model';
 })
 export class GroupSelectableComponent  implements OnInit, ControlValueAccessor {
 
-  private _groups:BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
-  public groups$:Observable<Group[]> = this._groups.asObservable();
+  private _group:BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
+  public group$:Observable<Group[]> = this._group.asObservable();
 
   @Input() set groups(groups:Group[]){
-      this._groups.next(groups);
+      this._group.next(groups);
   }
 
   selectedGroupId:string|null = null;
