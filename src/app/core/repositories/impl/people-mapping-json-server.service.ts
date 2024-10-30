@@ -35,7 +35,7 @@ export interface PersonRaw {
             email:data.email??'',
             edad:data.age?.toString()??'',
             genero: this.toGenderMapping[data.gender],
-            grupoId:''
+            grupoId:data.groupID??''
         };
     }
     setUpdate(data: Person):PersonRaw {
