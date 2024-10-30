@@ -18,31 +18,30 @@ import { GroupModalComponent } from './shared/components/group-modal/group-modal
 import { GroupSelectableComponent } from './shared/components/group-selectable/group-selectable.component';
 
 @NgModule({
-  declarations: [AppComponent,PersonModalComponent,GroupModalComponent,GroupSelectableComponent],
+  declarations: [AppComponent, PersonModalComponent, GroupModalComponent,GroupSelectableComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    ReactiveFormsModule,],
+    ReactiveFormsModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideHttpClient(),
-
+    
     { provide: PEOPLE_RESOURCE_NAME_TOKEN, useValue: 'personas' },
-    { provide: PEOPLE_API_URL_TOKEN, useValue: 'http://localhost:3000' },
-
     { provide: GROUP_RESOURCE_NAME_TOKEN, useValue: 'grupos' },
+    { provide: PEOPLE_API_URL_TOKEN, useValue: 'http://localhost:3000' },
     { provide: GROUP_API_URL_TOKEN, useValue: 'http://localhost:3000' },
     // Registrar los repositorios
-    {
-      provide: PEOPLE_REPOSITORY_MAPPING_TOKEN,
+    { 
+      provide: PEOPLE_REPOSITORY_MAPPING_TOKEN, 
       useClass: PeopleMappingJsonServer
     },
-    PeopleRepositoryFactory,
-    {
-      provide: GROUP_REPOSITORY_MAPPING_TOKEN,
+    { 
+      provide: GROUP_REPOSITORY_MAPPING_TOKEN, 
       useClass: GroupsMappingJsonServer
     },
+    PeopleRepositoryFactory,
     GroupRepositoryFactory,
     // Registrar otros repositorios según sea necesario
     // Servicios de aplicación
@@ -51,11 +50,12 @@ import { GroupSelectableComponent } from './shared/components/group-selectable/g
       useClass: PeopleService
     },
     {
-      provide: 'GroupsService',
+      provide: 'GroupService',
       useClass: GroupService
     }
+    // ... otros proveedores],
+
   ],
-  // ... otros proveedores],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

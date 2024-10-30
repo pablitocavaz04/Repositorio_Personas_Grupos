@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Group } from 'src/app/core/models/group.model';
 import { Person } from 'src/app/core/models/person.model';
 
 
@@ -14,6 +16,13 @@ export class PersonModalComponent  implements OnInit {
   genders:string[] = ['Masculino', 'Femenino', 'Otros'];
   formGroup:FormGroup;
   mode:'new'|'edit' = 'new';
+
+  private _group:BehaviorSubject<Group[]> = new BehaviorSubject<Group[]>([]);
+  public group$:Observable<Group[]> = this._group.asObservable();
+
+  @Input() set groups(groups:Group[]){
+    this._group.next(groups);
+  }
 
   @Input() set person(_person:Person){
     if(_person && _person.id)
